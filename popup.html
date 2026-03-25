@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Play Saver Stats</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ── Header ───────────────────────────────────── -->
+        <header>
+            <h1>Play Saver</h1>
+            <div class="theme-row">
+                <button class="theme-btn" data-theme="light" title="Light mode">☀️ Light</button>
+                <button class="theme-btn active" data-theme="auto" title="Follow system">⚙️ Auto</button>
+                <button class="theme-btn" data-theme="dark" title="Dark mode">🌙 Dark</button>
+            </div>
+        </header>
+
+        <!-- ── Stats (always visible) ───────────────────── -->
+        <div class="card highlight">
+            <div class="card-label">Total Time Saved</div>
+            <div class="card-value total" id="total-time">0m</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Saved Today</div>
+            <div class="card-value" id="today-time">0m</div>
+        </div>
+
+        <!-- ── Display mode (always visible) ────────────── -->
+        <div class="card">
+            <div class="card-label">Display Mode</div>
+            <div class="radio-group" id="display-mode-group">
+                <label class="radio-label">
+                    <input type="radio" name="displayMode" value="always" checked>
+                    <span class="radio-text">Always On (Default)</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="displayMode" value="middle_end">
+                    <span class="radio-text">Middle &amp; End</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="displayMode" value="hidden">
+                    <span class="radio-text">Hidden</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- ══ AUTH: Logged-in ═══════════════════════════ -->
+        <div id="view-logged-in" class="auth-view" style="display:none; margin-top: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 6px; overflow: hidden;" title="Logged in as">
+                    <div class="avatar" id="user-avatar" style="width: 20px; height: 20px; font-size: 10px;">?</div>
+                    <span class="user-email" id="user-email" style="font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 90px;">—</span>
+                </div>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                    <button id="btn-dashboard" class="btn dashboard" style="padding: 4px 8px; font-size: 11px; flex: none;">🗂 Dashboard</button>
+                    <button id="btn-signout" class="btn danger" style="padding: 4px 8px; font-size: 11px; flex: none; background: transparent;">Sign Out</button>
+                </div>
+            </div>
+            <p id="auth-error-loggedin" class="auth-error" style="display:none;"></p>
+        </div>
+
+        <!-- ══ AUTH: Logged-out ══════════════════════════ -->
+        <div id="view-logged-out" class="auth-view" style="display:none; text-align: center; margin-top: 8px;">
+            <p style="font-size: 11px; color: var(--text-muted); margin: 0 0 8px;">Want to sync your stats across devices?</p>
+            <button id="btn-google" class="btn secondary" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px; width: 100%; padding: 8px 0; border: 1px solid var(--border);">
+                <svg width="14" height="14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#EA4335" d="M24 9.5c3.21 0 5.93 1.1 8.13 2.9l6.04-6.04C34.27 3.19 29.46 1 24 1 14.82 1 7.07 6.68 3.96 14.6l7.03 5.46C12.62 14.02 17.86 9.5 24 9.5z"/>
+                    <path fill="#4285F4" d="M46.52 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h12.7c-.55 2.97-2.2 5.48-4.67 7.17l7.18 5.58C43.44 37.26 46.52 31.36 46.52 24.5z"/>
+                    <path fill="#FBBC05" d="M10.99 28.5a14.6 14.6 0 0 1 0-9l-7.03-5.46A23.94 23.94 0 0 0 1 24c0 3.87.92 7.53 2.96 10.6l7.03-6.1z"/>
+                    <path fill="#34A853" d="M24 47c5.46 0 10.05-1.82 13.41-4.93l-7.18-5.58C28.37 37.81 26.3 38.5 24 38.5c-6.14 0-11.38-4.52-13.01-10.6l-7.03 6.1C7.07 41.32 14.82 47 24 47z"/>
+                </svg>
+                Sign in with Google
+            </button>
+            <p id="auth-error" class="auth-error" style="display:none;"></p>
+        </div>
+
+    </div>
+    <script src="auth.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

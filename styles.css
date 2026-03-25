@@ -1,0 +1,532 @@
+/* styles.css */
+
+/* === CSS Variables: Dark Theme (default) === */
+:root,
+html.dark {
+    --bg-primary:    #0f172a;   /* Slate 900 */
+    --bg-card:       #1e293b;   /* Slate 800 */
+    --bg-card-hi:    linear-gradient(145deg, #1e293b, #0f172a);
+    --bg-input:      #0f172a;
+    --border:        #334155;   /* Slate 600 */
+    --border-hi:     rgba(74, 222, 128, 0.3);
+    --text-primary:  #f8fafc;   /* Slate 50 */
+    --text-muted:    #94a3b8;   /* Slate 400 */
+    --text-value:    #e2e8f0;
+    --text-total:    #4ade80;   /* Green 400 */
+    --accent:        #4ade80;
+    --btn-secondary: #334155;
+    --btn-sec-hover: #475569;
+    --btn-danger-bg: rgba(239, 68, 68, 0.1);
+    --btn-danger-fg: #ef4444;
+    --btn-danger-br: rgba(239, 68, 68, 0.2);
+    --btn-danger-hv: rgba(239, 68, 68, 0.2);
+    --shadow-card:   0 4px 6px -1px rgba(0, 0, 0, 0.25);
+    --toast-bg:      #10b981;
+    --select-bg:     #0f172a;
+}
+
+/* === Light Theme Overrides === */
+html.light {
+    --bg-primary:    #f1f5f9;   /* Slate 100 */
+    --bg-card:       #ffffff;
+    --bg-card-hi:    linear-gradient(145deg, #ffffff, #f1f5f9);
+    --bg-input:      #f8fafc;
+    --border:        #cbd5e1;   /* Slate 300 */
+    --border-hi:     rgba(22, 163, 74, 0.35);
+    --text-primary:  #0f172a;
+    --text-muted:    #64748b;   /* Slate 500 */
+    --text-value:    #1e293b;
+    --text-total:    #16a34a;   /* Green 600 */
+    --accent:        #16a34a;
+    --btn-secondary: #e2e8f0;
+    --btn-sec-hover: #cbd5e1;
+    --btn-danger-bg: rgba(239, 68, 68, 0.08);
+    --btn-danger-fg: #dc2626;
+    --btn-danger-br: rgba(239, 68, 68, 0.25);
+    --btn-danger-hv: rgba(239, 68, 68, 0.15);
+    --shadow-card:   0 2px 8px rgba(0, 0, 0, 0.08);
+    --toast-bg:      #16a34a;
+    --select-bg:     #f8fafc;
+}
+
+/* === Base === */
+html {
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    width: 320px;
+}
+
+.container {
+    padding: 24px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #4ade80, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+/* === Theme Toggle Row === */
+.theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.theme-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.theme-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+html.light .theme-btn.active {
+    color: #fff;
+}
+
+/* === Cards === */
+.card {
+    background: var(--bg-card);
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card.highlight {
+    background: var(--bg-card-hi);
+    border-color: var(--border-hi);
+}
+
+.card-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.card-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-value);
+}
+
+.card-value.total {
+    font-size: 32px;
+    color: var(--text-total);
+}
+
+/* === Actions === */
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn.secondary {
+    background: var(--btn-secondary);
+    color: var(--text-primary);
+}
+
+.btn.secondary:hover {
+    background: var(--btn-sec-hover);
+}
+
+.btn.danger {
+    background: var(--btn-danger-bg);
+    color: var(--btn-danger-fg);
+    border: 1px solid var(--btn-danger-br);
+}
+
+.btn.danger:hover {
+    background: var(--btn-danger-hv);
+}
+
+/* === Radio Group === */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 14px;
+    text-align: left;
+    padding: 0 4px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+    user-select: none;
+}
+
+.radio-label:hover {
+    color: var(--accent);
+}
+
+.radio-label input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    margin: 0;
+    outline: none;
+    transition: all 0.2s ease;
+    display: grid;
+    place-content: center;
+    background: var(--bg-input);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.radio-label input[type="radio"]::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.2s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: inset 10px 10px var(--accent);
+}
+
+.radio-label input[type="radio"]:checked {
+    border-color: var(--accent);
+}
+
+.radio-label input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+/* === Toast === */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--toast-bg);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   AUTH STYLES
+   ============================================================ */
+
+/* ── Auth view wrapper ──────────────────────────────────────── */
+.auth-view {
+    margin-bottom: 16px;
+}
+
+/* ── Auth banner (logged-out) ───────────────────────────────── */
+.auth-banner {
+    text-align: center;
+    padding: 16px 8px 12px;
+}
+
+.auth-icon {
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+.auth-title {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.auth-sub {
+    margin: 0 0 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* ── Google button ──────────────────────────────────────────── */
+.btn.google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 11px 0;
+    background: #fff;
+    color: #1f1f1f;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12);
+}
+
+.btn.google:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,.18);
+    background: #f8f8f8;
+}
+
+.btn.google:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* spinner inside google button */
+.btn.google .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #dadce0;
+    border-top-color: #4285F4;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Toggle link ────────────────────────────────────────────── */
+.btn-link {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s ease;
+}
+
+.btn-link:hover {
+    color: var(--accent);
+}
+
+/* ── Email/password form ────────────────────────────────────── */
+.email-form {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input {
+    padding: 10px 12px;
+    background: var(--bg-input);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.input:focus {
+    border-color: var(--accent);
+}
+
+/* ── Auth error ─────────────────────────────────────────────── */
+.auth-error {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: #ef4444;
+    text-align: center;
+}
+
+/* ── User card (logged-in) ──────────────────────────────────── */
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-card);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4ade80, #3b82f6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.user-email {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-badge {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* ── Sync row ───────────────────────────────────────────────── */
+.sync-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.btn.sync {
+    flex: 1;
+    padding: 9px 0;
+    background: rgba(74, 222, 128, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.btn.sync:hover {
+    background: rgba(74, 222, 128, 0.22);
+}
+
+.btn.sync:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ── Dashboard button ───────────────────────────────────────── */
+.btn.dashboard {
+    flex: 1;
+    padding: 9px 0;
+    background: rgba(59, 130, 246, 0.12);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.btn.dashboard:hover {
+    background: rgba(59, 130, 246, 0.22);
+}
+
+.sync-status {
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.sync-status.ok   { color: var(--accent); }
+.sync-status.err  { color: #ef4444; }
+

@@ -1,0 +1,68 @@
+/* content.css */
+
+/* === Shared overlay base === */
+#yt-time-saved-overlay,
+#yt-power-saving-overlay {
+    position: absolute;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease, color 0.25s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Position: Top Right */
+#yt-time-saved-overlay.pos-top-right,
+#yt-power-saving-overlay.pos-top-right {
+    top: 70px;
+    right: 20px;
+    bottom: auto;
+    left: auto;
+    transform: translateY(-5px);
+}
+
+#yt-time-saved-overlay.pos-top-right.yt-ts-visible,
+#yt-power-saving-overlay.pos-top-right.yt-ps-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Position: Bottom Center */
+#yt-time-saved-overlay.pos-bottom-center,
+#yt-power-saving-overlay.pos-bottom-center {
+    bottom: 60px;
+    left: 50%;
+    top: auto;
+    right: auto;
+    transform: translateX(-50%) translateY(10px);
+}
+
+#yt-time-saved-overlay.pos-bottom-center.yt-ts-visible,
+#yt-power-saving-overlay.pos-bottom-center.yt-ps-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* === Dark overlay (default) === */
+#yt-time-saved-overlay.theme-dark,
+#yt-power-saving-overlay.theme-dark {
+    background: rgba(15, 23, 42, 0.85);  /* Slate 900 */
+    color: #4ade80;                       /* Green 400 */
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+/* === Light overlay === */
+#yt-time-saved-overlay.theme-light,
+#yt-power-saving-overlay.theme-light {
+    background: rgba(255, 255, 255, 0.88);
+    color: #16a34a;                       /* Green 600 */
+    border: 1px solid rgba(22, 163, 74, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
