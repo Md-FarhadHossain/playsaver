@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // ── Dashboard button ──────────────────────────────────────
     $('btn-dashboard').addEventListener('click', () => {
-        chrome.tabs.create({ url: 'https://myaccount.google.com/' });
+        chrome.tabs.create({ url: 'https://www.playsaver.org/dashboard' });
     });
 
     // ── Sign Out ─────────────────────────────────────────────
