@@ -235,7 +235,7 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 });
 
 // 2. Tab Close Failsafe
-const API_URL = 'http://localhost:3000/api/sync-time'; // Update when deployed to Vercel!
+const API_URL = 'https://playsaver-backend.vercel.app/api/sync-time';
 
 window.addEventListener('pagehide', executeFailsafeFlush);
 

@@ -19,7 +19,7 @@
     "<all_urls>",
     "https://*.turso.io/*",
     "https://www.googleapis.com/*",
-    "http://localhost:3000/*"
+    "https://playsaver-backend.vercel.app/*"
   ],
   "oauth2": {
     "client_id": "144549382760-bl1dqisvr7vb8i7ldmp0rcbgpn7bop3q.apps.googleusercontent.com",

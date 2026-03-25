@@ -2,7 +2,7 @@
 // Service worker: handles background auto-sync to Turso.
 
 // ─── API Config ───────────────────────────────────────────────────────────────
-const API_URL = 'http://localhost:3000/api/sync-time'; // Update when deployed to Vercel!
+const API_URL = 'https://playsaver-backend.vercel.app/api/sync-time';
 
 // 3. The Background Sync (The Service Worker) - set up alarms for 1 minute
 chrome.runtime.onInstalled.addListener(() => {
