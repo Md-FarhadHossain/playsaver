@@ -8,12 +8,12 @@ html.dark {
     --bg-card-hi:    linear-gradient(145deg, #1e293b, #0f172a);
     --bg-input:      #0f172a;
     --border:        #334155;   /* Slate 600 */
-    --border-hi:     rgba(74, 222, 128, 0.3);
+    --border-hi:     rgba(59, 130, 246, 0.3);
     --text-primary:  #f8fafc;   /* Slate 50 */
     --text-muted:    #94a3b8;   /* Slate 400 */
     --text-value:    #e2e8f0;
-    --text-total:    #4ade80;   /* Green 400 */
-    --accent:        #4ade80;
+    --text-total:    #38bdf8;   /* Sky 400 */
+    --accent:        #3b82f6;   /* Blue 500 */
     --btn-secondary: #334155;
     --btn-sec-hover: #475569;
     --btn-danger-bg: rgba(239, 68, 68, 0.1);
@@ -21,7 +21,7 @@ html.dark {
     --btn-danger-br: rgba(239, 68, 68, 0.2);
     --btn-danger-hv: rgba(239, 68, 68, 0.2);
     --shadow-card:   0 4px 6px -1px rgba(0, 0, 0, 0.25);
-    --toast-bg:      #10b981;
+    --toast-bg:      #3b82f6;   /* Blue 500 */
     --select-bg:     #0f172a;
 }
 
@@ -32,12 +32,12 @@ html.light {
     --bg-card-hi:    linear-gradient(145deg, #ffffff, #f1f5f9);
     --bg-input:      #f8fafc;
     --border:        #cbd5e1;   /* Slate 300 */
-    --border-hi:     rgba(22, 163, 74, 0.35);
+    --border-hi:     rgba(37, 99, 235, 0.35);
     --text-primary:  #0f172a;
     --text-muted:    #64748b;   /* Slate 500 */
     --text-value:    #1e293b;
-    --text-total:    #16a34a;   /* Green 600 */
-    --accent:        #16a34a;
+    --text-total:    #0284c7;   /* Sky 600 */
+    --accent:        #2563eb;   /* Blue 600 */
     --btn-secondary: #e2e8f0;
     --btn-sec-hover: #cbd5e1;
     --btn-danger-bg: rgba(239, 68, 68, 0.08);
@@ -45,7 +45,7 @@ html.light {
     --btn-danger-br: rgba(239, 68, 68, 0.25);
     --btn-danger-hv: rgba(239, 68, 68, 0.15);
     --shadow-card:   0 2px 8px rgba(0, 0, 0, 0.08);
-    --toast-bg:      #16a34a;
+    --toast-bg:      #2563eb;   /* Blue 600 */
     --select-bg:     #f8fafc;
 }
 
@@ -76,7 +76,7 @@ h1 {
     margin: 0 0 12px;
     font-size: 22px;
     font-weight: 700;
-    background: linear-gradient(135deg, #4ade80, #3b82f6);
+    background: linear-gradient(135deg, #1A73E8, #06B6D4);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -279,7 +279,7 @@ html.light .theme-btn.active {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
 .toast.show {
@@ -437,7 +437,7 @@ html.light .theme-btn.active {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #4ade80, #3b82f6);
+    background: linear-gradient(135deg, #1A73E8, #06B6D4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -482,9 +482,9 @@ html.light .theme-btn.active {
 .btn.sync {
     flex: 1;
     padding: 9px 0;
-    background: rgba(74, 222, 128, 0.12);
+    background: rgba(59, 130, 246, 0.12);
     color: var(--accent);
-    border: 1px solid rgba(74, 222, 128, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: 8px;
     font-size: 13px;
     font-weight: 600;
@@ -494,7 +494,7 @@ html.light .theme-btn.active {
 }
 
 .btn.sync:hover {
-    background: rgba(74, 222, 128, 0.22);
+    background: rgba(59, 130, 246, 0.22);
 }
 
 .btn.sync:disabled {

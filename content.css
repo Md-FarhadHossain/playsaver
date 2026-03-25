@@ -54,15 +54,15 @@
 #yt-time-saved-overlay.theme-dark,
 #yt-power-saving-overlay.theme-dark {
     background: rgba(15, 23, 42, 0.85);  /* Slate 900 */
-    color: #4ade80;                       /* Green 400 */
-    border: 1px solid rgba(74, 222, 128, 0.2);
+    color: #38bdf8;                       /* Sky 400 */
+    border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 /* === Light overlay === */
 #yt-time-saved-overlay.theme-light,
 #yt-power-saving-overlay.theme-light {
     background: rgba(255, 255, 255, 0.88);
-    color: #16a34a;                       /* Green 600 */
-    border: 1px solid rgba(22, 163, 74, 0.25);
+    color: #0284c7;                       /* Sky 600 */
+    border: 1px solid rgba(37, 99, 235, 0.25);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
