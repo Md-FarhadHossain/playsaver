@@ -12,7 +12,6 @@ let isPlayingAtSpeed = false;
 
 let displayMode = 'always';
 let shownMiddle = false;
-let shownEnd = false;
 let forceShowUntil = 0;
 
 let powerSavingOverlayTimeout = 0;
@@ -35,7 +34,8 @@ function showPowerSavingOverlay() {
     overlay.classList.add(overlayTheme === 'dark' ? 'theme-dark' : 'theme-light');
     
     // Apply position class
-    overlay.classList.add(displayMode === 'middle_end' ? 'pos-bottom-center' : 'pos-top-right');
+    overlay.classList.add('pos-bottom-center');
+    overlay.classList.remove('pos-top-right');
     
     overlay.innerText = 'Saving Time! ⚡';
     
@@ -172,7 +172,6 @@ setInterval(() => {
 document.addEventListener('yt-navigate-finish', () => {
     sessionSavedMs = 0;
     shownMiddle = false;
-    shownEnd = false;
     forceShowUntil = 0;
     
     lastVideoSpeed = 1; // Reset memory so restored speed triggers the ratechange popup
@@ -288,9 +287,6 @@ function updateOverlay() {
         if (!shownMiddle && ratio >= 0.5) {
             shownMiddle = true;
             forceShowUntil = now + 5000;
-        } else if (!shownEnd && ratio >= 0.98) {
-            shownEnd = true;
-            forceShowUntil = now + 5000;
         }
     }
     
@@ -299,6 +295,8 @@ function updateOverlay() {
         shouldShow = false;
     } else if (displayMode === 'hidden') {
         shouldShow = false;
+    } else if (videoElement && videoElement.ended) {
+        shouldShow = true;
     } else if (displayMode === 'always') {
         shouldShow = isPlayingAtSpeed;
     } else if (displayMode === 'middle_end') {
